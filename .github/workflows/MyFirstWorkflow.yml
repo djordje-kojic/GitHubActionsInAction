@@ -55,14 +55,15 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        os-version: [macos-lastest, ubuntu-latest]
-        node_version: [12, 14 ,16]
-    name: My First Job
-    runs-on: ${{matrix.os-version}}
+        os_version: [macos-latest, ubuntu-latest]
+        node_version: [12, 14, 16]
+  
+    name: Job2
+    runs-on: ${{ matrix.os_version }}
     steps:
-      - uses: action/setup-node@v3.6.0
+      - uses: actions/setup-node@v3.6.0
         with:
-          node_version: ${{matrix.node_version}}
+          node-version: ${{ matrix.node_version }}
 
 
   job_2:
