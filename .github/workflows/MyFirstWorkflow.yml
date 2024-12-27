@@ -20,9 +20,9 @@ on:
         description: 'Apply tag after successfull test run'
         required: true
         type: boolean
-      enviroment:
-        description: 'Enviroment to run test against'
-        type: enviroment
+      environment:
+        description: 'Environment to run test against'
+        type: environment
         required: true
     
 jobs:
@@ -44,7 +44,7 @@ jobs:
           echo "Homedrive: ${{inputs.homedrive}}"
           echo "Log level: ${{inputs.logLevel}}"
           echo "Tag source: ${{inputs.tag}}"
-          echo "Enviroment: ${{inputs.enviroment}}"
+          echo "Enviroment: ${{inputs.environment}}"
         name: Workflow Inputs
         if: ${{github.event_name == 'workflow_dispatch'}}
 
@@ -83,3 +83,5 @@ jobs:
     needs: [job_2, job_3]
     steps:
       - run: "echo Job: ${{ github.job }}"
+
+## Test Test
